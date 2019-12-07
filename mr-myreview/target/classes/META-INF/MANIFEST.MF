@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: narvane
+Build-Jdk: 11.0.3
+Implementation-Title: mr-myreview
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: br.com.myreview
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/mr-myreview
+Created-By: Maven Integration for Eclipse
+
