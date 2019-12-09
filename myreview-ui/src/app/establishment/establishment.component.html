@@ -1,0 +1,26 @@
+
+<div class="container" style="margin: 20px;">  
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm">
+          <h5>{{ establishment.name }} | {{ establishment.description }}</h5>
+        </div>
+        <div class="row">
+          <h5 style="color: orange; float: right; margin-right: 25px;">{{ establishment.stars }} Estrelas</h5>
+        </div>
+        </div>
+        </div>
+      </div>
+</div>
+
+<ul class="list-group" style="margin-left: 38px;">
+  <li class="list-group-item" *ngFor="let review of reviews" >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1" style="color: orange;">{{ review.stars }} Estrelas</h5>
+      <small [(ngModel)]="idUsuario">3 dias atrás</small>
+    </div>
+    <p class="mb-1">{{ review.comment }}</p>
+    <small  style="color: grey;">Mateus Jalanderson</small>
+  </li>
+</ul>
