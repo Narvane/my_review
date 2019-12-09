@@ -30,6 +30,7 @@ export class EstablishmentService {
     return this.httpCliente.get(this.apiurl + "/states");
   }
   getCitiesList(stateName: string) {
+    return this.httpCliente.get(this.apiurl + "/" + stateName + "/cities");
       return this.httpCliente.get(this.apiurl + "/" + stateName + "/cities");
   }
   getDestrictList(stateName: string, cityName: string) {
@@ -37,5 +38,15 @@ export class EstablishmentService {
   }
   getEstablishment(idEstablishent){
     return this.httpCliente.get(this.apiurl + "/establishment/" + idEstablishent);
+  }
+
+  getDefaultStateList() {
+    return "";
+  }
+  getDefaultCitiesList() {
+    
+  }
+  getDefaultDesctrictsList() {
+    
   }
 }
