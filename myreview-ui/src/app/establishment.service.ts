@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../app/user';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +45,8 @@ export class EstablishmentService {
   }
   getUser(idReview){
     return this.httpCliente.get(this.apiurl + "/review/" + idReview);
+  }
+  postUser(user: User):Observable<any>{
+    return this.httpCliente.post(this.apiurl, user);
   }
 }

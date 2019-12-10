@@ -190,4 +190,15 @@ public class HomeController {
 		
 		return user;
 	}
+	
+	@PostMapping("/cadastro")
+	@ResponseStatus(HttpStatus.CREATED)
+	public User createUser(@Valid @RequestBody User user) {
+		Optional<User> registredUser = userRepository.findById(user.getId());
+		
+		if(registredUser.isPresent()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este usuário já existe!");
+		}
+		return userRepository.saveAndFlush(user);
+	}
 }
