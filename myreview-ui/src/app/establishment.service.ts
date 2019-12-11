@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class EstablishmentService {
 
-  private apiurl = 'http://localhost:8080/establishments';
+  private apiurl = 'http://localhost:8080/';
   public ALL_ESTABLISHMENTS_URL = `${this.apiurl}/establishments/all`;
   public ESTABLISHMENTS_BY_STATE_URL = `${this.apiurl}/establishments/state/`;
   public ESTABLISHMENTS_BY_CITY_URL = `${this.apiurl}/establishments/city/`;
@@ -26,42 +26,27 @@ export class EstablishmentService {
   public DELETE_REVIEW = `${this.apiurl}/review/`;
   
   constructor(private httpCliente: HttpClient) { }
-
-  list() {
-    return this.httpCliente.get(this.apiurl);
-  }
-
-  getEstablishmentsByState(stateName: string) {
-    return this.httpCliente.get(this.apiurl + "/" + stateName);
-  }
-
-  getEstablishmentsByCity(stateName: string, cityName: string) {
-    return this.httpCliente.get(this.apiurl + "/" + stateName + "/" + cityName);
-  }
-
-  getEstablishmentsByDistrict(stateName: string, cityName: string, districtName: string) {
-    return this.httpCliente.get(this.apiurl + "/" +  stateName + "/" +  cityName + "/" +  districtName);
-  }
-
-  getStateList() {
-    return this.httpCliente.get(this.apiurl + "/states");
-  }
-  getCitiesList(stateName: string) {
-      return this.httpCliente.get(this.apiurl + "/" + stateName + "/cities");
-  }
-  getDestrictList(stateName: string, cityName: string) {
-    return this.httpCliente.get(this.apiurl + "/" + stateName + "/" + cityName + "/districts");
-  }
+  
   getEstablishment(idEstablishent){
-    return this.httpCliente.get(this.apiurl + "/establishment/" + idEstablishent);
+    return this.httpCliente.get(this.ESTABLISHMENT_URL + idEstablishent);
   }
-  getReviews(idEstablishent){
-    return this.httpCliente.get(this.apiurl + "/reviews/" + idEstablishent);
+  getEstablishments() {
+    return this.httpCliente.get(this.ALL_ESTABLISHMENTS_URL);
   }
-  getUser(idReview){
-    return this.httpCliente.get(this.apiurl + "/review/" + idReview);
+  postEstablishment() {
+    
   }
-  postUser(user: User):Observable<any>{
-    return this.httpCliente.post(this.apiurl, user);
+  
+  getEstablishmentsByState(stateName: string) {
+    return this.httpCliente.get(this.ESTABLISHMENTS_BY_STATE_URL + stateName);
   }
+
+  getEstablishmentsByCity(cityName: string) {
+    return this.httpCliente.get(this.ESTABLISHMENTS_BY_CITY_URL + cityName);
+  }
+
+  getEstablishmentsByDistrict(districtName: string) {
+    return this.httpCliente.get(this.ESTABLISHMENTS_BY_DISTRICT_URL +  districtName);
+  }
+
 }
