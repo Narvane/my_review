@@ -200,5 +200,14 @@ public class EstablishmentController {
 		return establishment.get();
 	} 
 	
+	@Autowired
+	private UserRepository userRepository; 
 	
+	public Establishment addEstablishment(Establishment establishment){
+		establishment.getReviews().forEach(i -> {
+			i.setEstablishment(establishment);
+			i.setUser(userRepository.findById(i.getUser().getId().get()));
+		});
+		return establishment;
+	}
 }
