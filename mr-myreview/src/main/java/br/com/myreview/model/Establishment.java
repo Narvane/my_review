@@ -3,14 +3,6 @@ package br.com.myreview.model;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
@@ -41,17 +33,10 @@ public class Establishment {
 	@Column(name = "est_stars", nullable = false)
 	private Double stars = 0.0;
 	
-	@Column(name = "est_country", length = 100, nullable = false)
-	private String country;
-
-	@Column(name = "est_state", nullable = false)
-	private String state;
-	
-	@Column(name = "est_city", length = 100, nullable = false)
-	private String city;
-	
-	@Column(name = "est_district", nullable = false)
-	private String district;
+	@JoinColumn(name="ads_id")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Address address;
 	
 	@Column(name = "est_number", length = 100, nullable = false)
 	@Min(0)
@@ -97,30 +82,6 @@ public class Establishment {
 	}
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getDistrict() {
-		return district;
-	}
-	public void setDistrict(String district) {
-		this.district = district;
 	}
 	public int getNumber() {
 		return number;

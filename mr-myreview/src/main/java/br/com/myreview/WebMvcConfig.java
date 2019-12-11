@@ -9,12 +9,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import br.com.myreview.controller.HomeController;
+import br.com.myreview.controller.EstablishmentController;
 
 
 @SuppressWarnings("deprecation")
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class })
+@ComponentScan(basePackageClasses = { EstablishmentController.class })
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware{
 

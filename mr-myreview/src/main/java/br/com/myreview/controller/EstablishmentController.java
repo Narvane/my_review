@@ -31,16 +31,41 @@ import br.com.myreview.repository.UserRepository;
 @CrossOrigin
 @RestController
 @RequestMapping("/establishments")
-public class HomeController {
+public class EstablishmentController {
 	
 	@Autowired
 	private EstablishmentRepository establishmentRepository;
 	
-	@Autowired
-	private ReviewRepository reviewRepository;
 	
-	@Autowired
-	private UserRepository userRepository;
+	@PostMapping
+	public void saveEstablishment() {
+		
+	}
+	
+	@GetMapping("/{id}")
+	public void getEstablishment() {
+		
+	}
+	
+	
+	@GetMapping("/all")
+	public void getEstablishments() {
+		
+	}
+	
+	@GetMapping("/state/{state}")
+	public void getEstablishmentsByState() {
+		
+	}
+	
+	@GetMapping("/city/{city}")
+	public void getEstablishmentsByCity() {
+		
+	}
+	@GetMapping("/district/{district}")
+	public void getEstablishmentsByDistrict() {
+		
+	}
 	
 	
 	@GetMapping
@@ -175,30 +200,5 @@ public class HomeController {
 		return establishment.get();
 	} 
 	
-	@GetMapping("/reviews/{id}")
-	public List<Review> getReviews(@PathVariable(name="id") Long id){
-		List<Review>  review;
-		review = reviewRepository.findReviews(id);
-		
-		return review;
-	} 
 	
-	@GetMapping("/review/{id}")
-	public User getUser(@PathVariable(name="id") Long id){
-
-		User user = userRepository.findById(id).get();
-		
-		return user;
-	}
-	
-	@PostMapping("/cadastro")
-	@ResponseStatus(HttpStatus.CREATED)
-	public User createUser(@Valid @RequestBody User user) {
-		Optional<User> registredUser = userRepository.findById(user.getId());
-		
-		if(registredUser.isPresent()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este usuário já existe!");
-		}
-		return userRepository.saveAndFlush(user);
-	}
 }
