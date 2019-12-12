@@ -11,13 +11,13 @@ import br.com.myreview.model.Establishment;
 public interface EstablishmentRepository extends JpaRepository<Establishment, Long> {
 	List<Establishment> findByOrderByStarsDesc();
 	
-	@Query("SELECT e FROM Establishment e JOIN e.address a WHERE a.state = :stateName") 
+	@Query("SELECT e FROM Establishment e JOIN e.district d JOIN d.city c JOIN c.state s WHERE s.name = :stateName") 
 	List<Establishment> findByStateOrderByStarsDesc(@Param("stateName") String stateName);
 	
-	@Query("SELECT e FROM Establishment e JOIN e.address a WHERE a.state = :cityName")  
+	@Query("SELECT e FROM Establishment e JOIN e.district d JOIN d.city c WHERE c.name = :cityName")  
 	List<Establishment> findByCityOrderByStarsDesc(@Param("cityName") String cityName);
 	
-	@Query("SELECT e FROM Establishment e JOIN e.address a WHERE a.state = :districtName") 
+	@Query("SELECT e FROM Establishment e JOIN e.district d WHERE d.name = :districtName") 
 	List<Establishment> findByDistrictOrderByStarsDesc(@Param("districtName") String districtName);
 	 
 }

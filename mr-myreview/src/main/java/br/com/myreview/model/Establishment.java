@@ -33,10 +33,10 @@ public class Establishment {
 	@Column(name = "est_stars", nullable = false)
 	private Double stars = 0.0;
 	
-	@JoinColumn(name="ads_id")
+	@JoinColumn(name="dst_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
-	private Address address;
+	private District district;
 	
 	@Column(name = "est_number", length = 100, nullable = false)
 	@Min(0)
@@ -89,7 +89,12 @@ public class Establishment {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	
+	public District getDistrict() {
+		return district;
+	}
+	public void setDistrict(District district) {
+		this.district = district;
+	}
 	
 	
 }
