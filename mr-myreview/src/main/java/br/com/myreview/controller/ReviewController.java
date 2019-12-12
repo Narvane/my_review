@@ -2,11 +2,14 @@ package br.com.myreview.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,21 +26,26 @@ public class ReviewController {
 	
 	
 	@PostMapping
-	public void saveReview() {
-		
+	public Review saveReview(@Valid @RequestBody Review review) {
+		return reviewRepository.save(review);
 	}
 	
-	@GetMapping("/establishment/{id}")
-	public List<Review> getReviewsByEstablishments(@PathVariable(name="id") Long id) {
-		List<Review>  review;
-		review = reviewRepository.findReviews(id);
+	@GetMapping("/establishment/{estabId}")
+	public List<Review> getReviewsByEstablishments(@PathVariable(name="estabId") Long estabId) {
+		List<Review> reviews;
 		
-		return review;
+		reviews =  reviewRepository.findReviewsByEstablishment(estabId);
+		
+		return reviews;
 	} 
 	
-	@GetMapping("/user/{id}")
-	public void getReviewsByUser() {
+	@GetMapping("/user/{userId}")
+	public List<Review> getReviewsByUser(@PathVariable(name="userId") Long userId) {
+		List<Review> reviews;
 		
+		reviews =  reviewRepository.findReviewsByUser(userId);
+		
+		return reviews;
 	}
 	
 }

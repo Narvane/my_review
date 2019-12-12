@@ -28,16 +28,15 @@ public class UserController {
 	
 	@PostMapping
 	public User saveUser(@Valid @RequestBody User user) {
-		Optional<User> registredUser = userRepository.findById(user.getId());
-		
-		if(registredUser.isPresent()) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este usuário já existe!");
-		}
-		return userRepository.saveAndFlush(user);
+		return userRepository.save(user);
 	}
 	
 	@GetMapping("/user/{id}")
-	public void getUser() {
-		
+	public User getUser(Long id) {
+		Optional<User> user = userRepository.findById(id);
+		if(!user.isPresent()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Este usuário não existe!");
+		}
+		return userRepository.findById(id).get();
 	}
 }
