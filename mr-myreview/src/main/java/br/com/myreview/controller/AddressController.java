@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+
+import java.util.Optional;
 
 import br.com.myreview.repository.AddressRepository;
 
@@ -20,30 +23,33 @@ public class AddressController {
 	private AddressRepository addressRepository; 
 	
 	@GetMapping("/states")
-	public List<String> getStates() {
+	public RespondeEntity<List<String>> getStates() {
 		List<String> stateList;
-		
 		stateList = addressRepository.findStates();
-		
-		return stateList;
+		if(stateList.isEmpty()){
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(stateList);
 	}
 	
 	@GetMapping("/cities/{stateName}")
-	public List<String> getCitiesByState(@PathVariable(name="stateName") String stateName) {
+	public RespondeEntity<List<String>> getCitiesByState(@PathVariable(name="stateName") String stateName) {
 		List<String> cityList;
-		
 		cityList = addressRepository.findCitiesByStates(stateName);
-		
-		return cityList;
+		if(cityList.isEmpty()){
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(cityList);
 	}
 	
 	@GetMapping("/districts/{cityName}")
-	public List<String> getDistrictsByCity(@PathVariable(name="cityName") String cityName) {
+	public RespondeEntity<List<String>> getDistrictsByCity(@PathVariable(name="cityName") String cityName) {
 		List<String> districtsList;
-		
 		districtsList = addressRepository.findDistrictsByCity(cityName);
-		
-		return districtsList;
+		if(districtsList.isEmpty()){
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(districtsList);
 		
 	}
 }
