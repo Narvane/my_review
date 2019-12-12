@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="dst_districts")
 public class District {
@@ -22,6 +25,8 @@ public class District {
 	@Column(name = "dst_name", nullable = false)
 	private String name;
 	
+	@JsonIgnore
+	@JsonIgnoreProperties("city")
 	@JoinColumn(name="cty_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private City city;

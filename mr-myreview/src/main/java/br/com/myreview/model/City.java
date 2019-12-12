@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="cty_citys")
 public class City{
@@ -25,10 +28,14 @@ public class City{
 	@Column(name = "cty_name", nullable = false)
 	private String name;
 	
+	@JsonIgnore
+	@JsonIgnoreProperties("state")
 	@JoinColumn(name="sts_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private State state;
 	
+	@JsonIgnore
+	@JsonIgnoreProperties("city")
 	@OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
 	private List<District> districts;
 	

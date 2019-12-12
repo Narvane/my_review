@@ -25,6 +25,8 @@ public class CityController {
 		List<City> cityList;
 		cityList = cityRepository.findCitiesByStates(stateName);
 		
+		System.out.println(cityList);
+		
 		return cityList;
 	}
 	
