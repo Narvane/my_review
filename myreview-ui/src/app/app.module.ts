@@ -12,6 +12,7 @@ import { EstablishmentComponent } from './establishment/establishment.component'
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AddressComponent } from './address/address.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AddressComponent } from './address/address.component';
     EstablishmentComponent,
     CadastroComponent,
     AddressComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

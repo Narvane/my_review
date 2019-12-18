@@ -1,3 +1,5 @@
+import { AddressService } from './address.service';
+import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { EstablishmentComponent } from './establishment/establishment.component';
@@ -9,7 +11,11 @@ import { AddressComponent } from './address/address.component';
 const routes: Routes = [
   {
     path:'',
-    component: SearchComponentComponent
+    component: HomeComponent
+  },
+  {
+    path:'establishments',
+    component: AddressComponent
   },
   {
     path:'establishment/:id',
@@ -18,10 +24,6 @@ const routes: Routes = [
   {
     path:'cadastro',
     component: CadastroComponent
-  },
-  {
-    path:'address',
-    component:  AddressComponent
   }
 ];
 
