@@ -3,6 +3,7 @@ import { SearchComponentComponent } from './search-component/search-component.co
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddressComponent } from './address/address.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'cadastro',
     component: CadastroComponent
+  },
+  {
+    path:'address',
+    component:  AddressComponent
   }
 ];
 

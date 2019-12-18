@@ -19,11 +19,11 @@ export class EstablishmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.establishmentService.getEstablishment(this.userId)
+/*     this.establishmentService.getEstablishment(this.userId)
     .subscribe(response => this.establishment = <any> response)
 
     this.establishmentService.getReviews(this.userId)
-    .subscribe(response => this.reviews = <any> response)
+    .subscribe(response => this.reviews = <any> response) */
   }
 
 }

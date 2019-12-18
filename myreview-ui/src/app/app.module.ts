@@ -11,6 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { AddressComponent } from './address/address.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     NavbarComponentComponent,
     EstablishmentComponent,
     CadastroComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,

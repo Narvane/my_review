@@ -10,24 +10,24 @@ import { EstablishmentService } from '../establishment.service';
   styleUrls: ['./search-component.component.css']
 })
 export class SearchComponentComponent implements OnInit {
-  state: string;
+/*   state: string;
   city: string = "Cidade";
   district: string = "Bairro";
   establishments = [];
   establishmentsStates = [];
   establishmentsCities = [];
-  establishmentsDistricts = [];
+  establishmentsDistricts = []; */
 
-  constructor(private establishmentService: EstablishmentService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.establishmentService.getStateList()
+    /* this.establishmentService.getStateList()
       .subscribe(response => this.establishmentsStates = <any> response)
     this.establishmentService.list()
-      .subscribe(response => this.establishments = <any> response)
+      .subscribe(response => this.establishments = <any> response) */
   }
 
-  loadCities() {
+ /*  loadCities() {
     if(this.state != "Estado"){
       this.establishmentService.getCitiesList(this.state)
       .subscribe(response => this.establishmentsCities = <any> response)
@@ -65,6 +65,6 @@ export class SearchComponentComponent implements OnInit {
       this.establishmentService.getEstablishmentsByDistrict(this.state, this.city, this.district)
         .subscribe(response => this.establishments = <any> response)
     }
-  }
+  } */
 
 }

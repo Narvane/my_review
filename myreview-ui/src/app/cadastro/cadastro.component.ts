@@ -22,7 +22,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {
   }
 
-  createUser(){
+ /*  createUser(){
     //let newUser:User = {
       //id: null,
       //firstName: "nome",
@@ -41,6 +41,6 @@ export class CadastroComponent implements OnInit {
       }
     )
 
-  }
+  } */
 
 }

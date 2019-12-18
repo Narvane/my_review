@@ -31,7 +31,7 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/establishment/{estabId}")
-	public List<Review> getReviewsByEstablishments(@PathVariable(name="estabId") Long estabId) {
+	public List<Review> getReviewsByEstablishment(@PathVariable(name="estabId") Long estabId) {
 		List<Review> reviews;
 		
 		reviews =  reviewRepository.findReviewsByEstablishment(estabId);

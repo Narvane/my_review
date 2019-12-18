@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+            <div class="row" style="padding: 20px;">
+                    <div class="col-sm">
+                            <select class="form-control form-control-lg" [(ngModel)]="selectedState" (focus)="loadStates()" (change)="loadCities()">
+                                    <option>Estados</option>
+                                    <option *ngFor="let state of states" >
+                                            {{ state.name }}</option>
+                            </select>
+                    </div>
+                    <div class="col-sm">
+
+                            <select class="form-control form-control-lg" [(ngModel)]="selectedCity" (focus)="loadCities()" (change)="loadDistricts()">
+                                    <option>Cidades</option>
+                                    <option *ngFor="let city of cities">
+                                            {{ city.name }}</option>
+                            </select>
+                    </div>
+                    <div class="col-sm">
+                            <select class="form-control form-control-lg" [(ngModel)]="selectedDistrict" (focus)="loadDistricts()">
+                                    <option>Bairros</option>
+                                    <option *ngFor="let district of districts">
+                                            {{ district.name }}</option>
+                            </select>
+                    </div>
+            </div>
+            <hr>
+            <a href="#" class="btn btn-warning" (click)="findByParameters()">Listar Estabelecimentos</a>
+    </div>
+</div>
