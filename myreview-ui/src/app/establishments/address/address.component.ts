@@ -1,5 +1,5 @@
-import { AddressService } from './../address.service';
-import { Component, OnInit } from '@angular/core';
+import { AddressService } from '../../address.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-address',
@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-  selectedState: string = "Estados";
-  selectedCity: string = "Cidades";
-  selectedDistrict: string = "Bairros";
+  @Input() selectedState: string = "Estados";
+  @Input() selectedCity: string = "Cidades";
+  @Input() selectedDistrict: string = "Bairros";
   states = [];
   cities = [];
   districts = [];

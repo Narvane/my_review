@@ -11,8 +11,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { AddressComponent } from './address/address.component';
+import { AddressComponent } from './establishments/address/address.component';
 import { HomeComponent } from './home/home.component';
+import { EstablishmentsComponent } from './establishments/establishments.component';
+import { EstablishmentListComponent } from './establishments/establishment-list/establishment-list.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { HomeComponent } from './home/home.component';
     CadastroComponent,
     AddressComponent,
     HomeComponent,
+    EstablishmentsComponent,
+    EstablishmentListComponent,
   ],
   imports: [
     BrowserModule,

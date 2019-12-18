@@ -1,3 +1,4 @@
+import { EstablishmentsComponent } from './establishments/establishments.component';
 import { AddressService } from './address.service';
 import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -5,7 +6,7 @@ import { SearchComponentComponent } from './search-component/search-component.co
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddressComponent } from './address/address.component';
+import { AddressComponent } from './establishments/address/address.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path:'establishments',
-    component: AddressComponent
+    component: EstablishmentsComponent
   },
   {
     path:'establishment/:id',
