@@ -1,5 +1,7 @@
 import { AddressService } from '../../address.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-address',
@@ -7,9 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-  @Input() selectedState: string = "Estados";
-  @Input() selectedCity: string = "Cidades";
-  @Input() selectedDistrict: string = "Bairros";
+
+  @Output() eventState = new EventEmitter<any>();
+  @Output() eventCity = new EventEmitter<any>();
+  @Output() eventDistrict = new EventEmitter<any>();
+
+  selectedState = "Estados";
+  selectedCity = "Cidades";
+  selectedDistrict = "Bairros";
+
   states = [];
   cities = [];
   districts = [];
@@ -21,6 +29,7 @@ export class AddressComponent implements OnInit {
   }
 
   loadStates(){
+    this.selectedState = "Estados";
     this.addressService.getStates()
     .subscribe(response => this.states = <any> response);
 
@@ -37,5 +46,12 @@ export class AddressComponent implements OnInit {
   loadDistricts(){
     this.addressService.getDistrictsByCity(this.selectedCity)
     .subscribe(response => this.districts = <any> response);
+
+  }
+
+  sendParameters(){
+    this.eventState.emit(this.selectedState);
+    this.eventCity.emit(this.selectedCity);
+    this.eventDistrict.emit(this.selectedDistrict);
   }
 }

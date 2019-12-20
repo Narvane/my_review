@@ -17,7 +17,6 @@ export class EstablishmentListComponent implements OnInit {
   ngOnInit() {
     this.establishmentService.getAllEstablishments()
       .subscribe(response => this.establishments = <any> response)
-    alert(this.city)
   }
 
   loadEstablishments(){

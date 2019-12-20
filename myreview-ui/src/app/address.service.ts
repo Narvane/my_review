@@ -17,11 +17,11 @@ export class AddressService {
     return this.httpCliente.get(this.ALL_STATES);
   }
 
-  getCitiesByState(stateName: string){
+  getCitiesByState(stateName: any){
     return this.httpCliente.get(this.CITIES_BY_STATE + stateName);
   }
 
-  getDistrictsByCity(cityName: string){
+  getDistrictsByCity(cityName: any){
     return this.httpCliente.get(this.DISTRICTS_BY_CITY + cityName);
   }
 }

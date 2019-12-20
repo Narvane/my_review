@@ -39,5 +39,5 @@ export class EstablishmentService {
   getEstablishmentsByDistrict(districtName: string) {
     return this.httpCliente.get(this.ESTABLISHMENTS_BY_DISTRICT_URL +  districtName);
   }
-
+  
 }
