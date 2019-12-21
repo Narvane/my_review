@@ -1,2 +1,13 @@
 <app-address (eventState)="reciverState($event)" (eventCity)="reciverCity($event)" (eventDistrict)="reciverDistrict($event)"></app-address>
-<app-establishment-list></app-establishment-list>
+<div class="list-group" *ngFor="let establishment of establishments">
+    <a routerLink="establishment/{{ establishment.id }}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ establishment.name }}</h5>
+                    <small></small>
+            </div>
+            <p class="mb-1">{{ establishment.description }}</p>
+            <small>
+                    <p class="mb-1" style="color: orange;">{{ establishment.stars }}</p>
+            </small>
+    </a>
+</div>

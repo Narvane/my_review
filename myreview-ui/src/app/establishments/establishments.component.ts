@@ -1,3 +1,4 @@
+import { EstablishmentService } from './../establishment.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,29 +7,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./establishments.component.css']
 })
 export class EstablishmentsComponent implements OnInit {
-  state;
-  city;
-  district;
+  state = "Estados";
+  city = "Cidades";
+  district = "Bairros";
 
-  constructor() { }
+  establishments = [];
+
+  constructor(private establishmentService: EstablishmentService) { }
 
   ngOnInit() {
-    
+    this.establishmentService.getAllEstablishments()
+      .subscribe(response => this.establishments = <any> response)
   }
   reciverState(state) {
-    console.log('Foi emitido o evento e chegou no pai >>>> ' + state);
     this.state = state;
+    this.loadEstablishments();
   }
   reciverCity(city) {
-    console.log('Foi emitido o evento e chegou no pai >>>> ' + city);
     this.city = city;
+    this.loadEstablishments();
   }
   reciverDistrict(district) {
-    console.log('Foi emitido o evento e chegou no pai >>>> ' + district);
     this.state = district;
+    this.loadEstablishments();
   }
 
   findByParameters(){
     alert(this.state);
+  }
+
+  loadEstablishments(){
+    if(this.city == "Cidades"){
+      this.establishmentService.getEstablishmentsByState(this.state)
+      .subscribe(response => this.establishments = <any> response)
+      alert("IF 1")
+    }else if(this.district == "Bairros" && this.city!="Cidades"){
+      this.establishmentService.getEstablishmentsByCity(this.city)
+      .subscribe(response => this.establishments = <any> response)
+      alert("IF 2")
+    }else if(this.state == "Estados" && this.district == "Bairros" && this.city=="Cidades"){
+      this.establishmentService.getAllEstablishments()
+      .subscribe(response => this.establishments = <any> response)
+      alert("IF 3")
+    }else{
+      this.establishmentService.getEstablishmentsByDistrict(this.district)
+      .subscribe(response => this.establishments = <any> response)
+      alert("IF 4")
+    }
   }
 }

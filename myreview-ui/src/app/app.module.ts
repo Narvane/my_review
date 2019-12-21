@@ -14,7 +14,6 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { AddressComponent } from './establishments/address/address.component';
 import { HomeComponent } from './home/home.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
-import { EstablishmentListComponent } from './establishments/establishment-list/establishment-list.component';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { EstablishmentListComponent } from './establishments/establishment-list/
     AddressComponent,
     HomeComponent,
     EstablishmentsComponent,
-    EstablishmentListComponent,
   ],
   imports: [
     BrowserModule,
