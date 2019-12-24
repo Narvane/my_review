@@ -14,6 +14,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { AddressComponent } from './establishments/address/address.component';
 import { HomeComponent } from './home/home.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
+import { RatingModule } from 'ng-starrating';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EstablishmentsComponent } from './establishments/establishments.compone
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RatingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

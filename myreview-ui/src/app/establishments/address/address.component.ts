@@ -14,6 +14,8 @@ export class AddressComponent implements OnInit {
   @Output() eventCity = new EventEmitter<any>();
   @Output() eventDistrict = new EventEmitter<any>();
 
+  @Output() eventTest = new EventEmitter<any>();
+
   selectedState = "Estados";
   selectedCity = "Cidades";
   selectedDistrict = "Bairros";
@@ -50,8 +52,6 @@ export class AddressComponent implements OnInit {
   }
 
   sendParameters(){
-    this.eventState.emit(this.selectedState);
-    this.eventCity.emit(this.selectedCity);
-    this.eventDistrict.emit(this.selectedDistrict);
+    this.eventTest.emit([this.selectedState, this.selectedCity, this.selectedDistrict]);
   }
 }

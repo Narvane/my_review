@@ -1,4 +1,4 @@
-<app-address (eventState)="reciverState($event)" (eventCity)="reciverCity($event)" (eventDistrict)="reciverDistrict($event)"></app-address>
+<app-address  (eventTest)="reciverTest($event)"></app-address>
 <div class="list-group" *ngFor="let establishment of establishments">
     <a routerLink="establishment/{{ establishment.id }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
@@ -7,7 +7,8 @@
             </div>
             <p class="mb-1">{{ establishment.description }}</p>
             <small>
-                    <p class="mb-1" style="color: orange;">{{ establishment.stars }}</p>
+                    <star-rating value="{{ establishment.stars }}" totalstars="5" checkedcolor="orange" uncheckedcolor="black" size="24px" readonly="true"></star-rating>
             </small>
     </a>
+    
 </div>

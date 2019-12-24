@@ -18,17 +18,14 @@ export class EstablishmentsComponent implements OnInit {
   ngOnInit() {
     this.establishmentService.getAllEstablishments()
       .subscribe(response => this.establishments = <any> response)
+      
   }
-  reciverState(state) {
-    this.state = state;
-    this.loadEstablishments();
-  }
-  reciverCity(city) {
-    this.city = city;
-    this.loadEstablishments();
-  }
-  reciverDistrict(district) {
-    this.state = district;
+
+  reciverTest(lista: [string, string, string]) {
+    this.state = lista[0];
+    this.city = lista[1];
+    this.district = lista[2];
+    
     this.loadEstablishments();
   }
 
@@ -40,19 +37,15 @@ export class EstablishmentsComponent implements OnInit {
     if(this.city == "Cidades"){
       this.establishmentService.getEstablishmentsByState(this.state)
       .subscribe(response => this.establishments = <any> response)
-      alert("IF 1")
     }else if(this.district == "Bairros" && this.city!="Cidades"){
       this.establishmentService.getEstablishmentsByCity(this.city)
       .subscribe(response => this.establishments = <any> response)
-      alert("IF 2")
     }else if(this.state == "Estados" && this.district == "Bairros" && this.city=="Cidades"){
       this.establishmentService.getAllEstablishments()
       .subscribe(response => this.establishments = <any> response)
-      alert("IF 3")
     }else{
       this.establishmentService.getEstablishmentsByDistrict(this.district)
       .subscribe(response => this.establishments = <any> response)
-      alert("IF 4")
     }
   }
 }
