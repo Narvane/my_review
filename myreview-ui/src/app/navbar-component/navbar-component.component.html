@@ -1,18 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #800000;">
-        <a class="navbar-brand" [routerLink]="['/']" style="color: white; margin-right: 0px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Orange_star.svg/838px-Orange_star.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
-          My</a><a class="navbar-brand" [routerLink]="['/']" style="color: orange; margin-left: 0px;">Review</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" style=" margin: -3px;">
-            <li class="nav-item active">
-              <a class="nav-link" [routerLink]="['/establishments']">Estabelecimentos <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav ml-auto" style=" margin: -3px;" style="float: right;">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" [routerLink]="['/cadastro']">Cadastre-se</button>
-          </ul>
-        </div>
-      </nav>
+  <a class="navbar-brand" [routerLink]="['/']" style="color: white; margin-right: 0px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Orange_star.svg/838px-Orange_star.svg.png"
+      width="30" height="30" class="d-inline-block align-top" alt="">
+    My</a><a class="navbar-brand" [routerLink]="['/']" style="color: orange; margin-left: 0px;">Review</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" style=" margin: -3px;">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/establishments']">Estabelecimentos <span
+            class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto" style="float: right;">
+      <div *ngIf="1 == 0; else elseBlock">
+        <li class="nav-item active" ngbDropdown display="dynamic" placement="bottom-right">
+          <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown3" role="button">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
+      width="30" height="30" class="d-inline-block align-top" alt="">
+            User     
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+            <a ngbDropdownItem [routerLink]="['/user/perfil']" (click)="$event.preventDefault()">Perfil</a>
+            <a ngbDropdownItem [routerLink]="['/user/reviews']" (click)="$event.preventDefault()">Avaliações</a>
+            <a ngbDropdownItem (click)="$event.preventDefault()">Sair</a>
+          </div>
+        </li>
+      </div>
+      <ng-template #elseBlock>
+        <button type="button" [routerLink]="['/user/cadastro']" class="btn btn-outline-warning">Cadastrar-se</button>
+      </ng-template>
+    </ul>
+  </div>
+</nav>

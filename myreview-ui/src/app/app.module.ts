@@ -15,6 +15,10 @@ import { AddressComponent } from './establishments/address/address.component';
 import { HomeComponent } from './home/home.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
 import { RatingModule } from 'ng-starrating';
+import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { ReviewsComponent } from './user/reviews/reviews.component';
+import { ToastComponent } from './toast/toast.component';
 
 
 @NgModule({
@@ -27,6 +31,10 @@ import { RatingModule } from 'ng-starrating';
     AddressComponent,
     HomeComponent,
     EstablishmentsComponent,
+    UserComponent,
+    ProfileComponent,
+    ReviewsComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

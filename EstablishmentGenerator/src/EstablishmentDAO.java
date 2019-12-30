@@ -63,14 +63,14 @@ public class EstablishmentDAO {
 		String s7 = "Fantastico";
 		String s8 = "Guloseima";
 		String s9 = "Gula";
-		String s10 = "Sensação";
+		String s10 = "SensaÃ§Ã£o";
 		String s11 = "Tropical";
 		String s12 = "Fermento";
 		String s13 = "Fabuloso";
 		String s14 = "Delicioso";
 		String s15 = "Glamuroso";
 		String s16 = "Cremoso";
-		String s17 = "Incrível";
+		String s17 = "IncrÃ­vel";
 		
 		prenames.add(s1);
 		prenames.add(s2);
@@ -94,7 +94,7 @@ public class EstablishmentDAO {
 		String s19 = "Sabor";
 		String s20 = "Gula";
 		String s21 = "Tropical";
-		String s22 = "Sensação";
+		String s22 = "SensaÃ§Ã£o";
 		String s23 = "Fermento";
 		String s24 = "da Casa";
 		String s25 = "do Mundo";

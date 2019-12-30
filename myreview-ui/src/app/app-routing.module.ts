@@ -1,3 +1,5 @@
+import { ReviewsComponent } from './user/reviews/reviews.component';
+import { ProfileComponent } from './user/profile/profile.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
 import { AddressService } from './address.service';
 import { HomeComponent } from './home/home.component';
@@ -23,8 +25,16 @@ const routes: Routes = [
     component: EstablishmentComponent
   },
   {
-    path:'cadastro',
+    path:'user/cadastro',
     component: CadastroComponent
+  },
+  {
+    path:'user/profile',
+    component: ProfileComponent
+  },
+  {
+    path:'user/reviews',
+    component: ReviewsComponent
   }
 ];
 

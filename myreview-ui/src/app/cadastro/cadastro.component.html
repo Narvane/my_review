@@ -1,51 +1,94 @@
-    <form>
-        <div class="form-row">
-          <div class="form-group col-md-4"></div>
-          <div class="form-group col-md-4">
-              <h1>Cadastrar Usuário</h1>
-          </div>
-          <div class="form-group col-md-4"></div>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <h1>Cadastrar Usuário</h1>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <label for="validationServer01">Nome</label>
+      <input type="text" name="firstName" [(ngModel)]="firstName" class="form-control {{ firstNameValidation }}" id="validationServer01" placeholder="Nome" value="Mark" (change)="firstNameValidate()" (click)="firstNameValidate()">
+      <div class="valid-feedback">
+        Parece bom!
+      </div>
+      <div class="invalid-feedback">
+        {{ firstNameInvalidFeedback }}
+      </div>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <label for="validationServer02">Sobrenome</label>
+      <input type="text" name="lastName" [(ngModel)]="lastName" class="form-control {{ lastNameValidation }}" id="validationServer02" placeholder="Sobrenome" value="Otto" (change)="lastNameValidate()" (click)="lastNameValidate()">
+      <div class="valid-feedback">
+        Parece bom!
+      </div>
+      <div class="invalid-feedback">
+        {{ lastNameInvalidFeedback }}
+      </div>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <label for="validationServerEmail">Email</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="inputEmail4">Nome</label>
-              <input type="text" [(ngModel)]="firstName" class="form-control" id="inputEmail4" placeholder="Nome">
-            </div>
-            <div class="form-group col-md-4"></div>
+        <input type="text" name="email" [(ngModel)]="email"class="form-control {{ emailValidation }}" id="validationServerEmail" placeholder="email" (change)="emailValidate()" (click)="emailValidate()">
+        <div class="invalid-feedback">
+          {{ emailInvalidFeedback }}
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="inputEmail4">Sobrenome</label>
-              <input type="text" [(ngModel)]="lastName" class="form-control" id="inputEmail4" placeholder="Sobrenome">
-            </div>
-            <div class="form-group col-md-4"></div>
+        <div class="valid-feedback">
+          Parece bom!
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-4"></div>
-          <div class="form-group col-md-4">
-            <label for="inputEmail4">Email</label>
-            <input type="email" [(ngModel)]="email" class="form-control" id="inputEmail4" placeholder="Email">
-          </div>
-          <div class="form-group col-md-4"></div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4"></div>
-          <div class="form-group col-md-4">
-            <label for="inputPassword4">Senha</label>
-            <input type="password" [(ngModel)]="password" class="form-control" id="inputPassword4" placeholder="Senha">
-          </div>
-          <div class="form-group col-md-4"></div>
-        </div>
-        <div class="form-row">
-            <hr>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-4"></div>
-          <div class="form-group col-md-4">
-              <button type="submit" (click)="createUser()" class="btn btn-danger btn-block">Cadastrar</button>
-          </div>
-          <div class="form-group col-md-4"></div>
-        </div>
-      </form>
+      </div>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <label for="validationPassword">Senha</label>
+      <input type="password" name="password" [(ngModel)]="password" class="form-control {{ passwordValidation }}" id="validationPassword" placeholder="Senha" (change)="passwordValidate()" (click)="passwordValidate()">
+      <div class="valid-feedback">
+        Boa senha!
+      </div>
+      <div class="invalid-feedback">
+        {{ passwordInvalidFeedback }}
+      </div>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <label for="validationCfPassword">Senha</label>
+      <input type="password" name="confirmPassword" [(ngModel)]="passwordConfirm" class="form-control {{ passwordConfirmValidation }}" id="validationCfPassword" placeholder="Confirmar Senha" (click)="passwordConfirmValidate()" (change)="passwordConfirmValidate()">
+      <div class="valid-feedback">
+        Senhas conferem!
+      </div>
+      <div class="invalid-feedback">
+        {{ passwordConfirmInvalidFeedback }}
+      </div>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+  <div class="form-row">
+    <hr>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <button type="submit" (click)="formValidate()" class="btn btn-danger btn-block">Cadastrar</button>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+</form>

@@ -4,7 +4,7 @@ public class Establishment {
 	private Long id;
 	private String name;
 	private String cnpj;
-	private String description = "Sem descrição!";
+	private String description = "Sem descriÃ§Ã£o!";
 	private Double stars = 0.0;
 	private int district;
 	private int number;
