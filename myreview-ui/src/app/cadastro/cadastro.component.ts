@@ -1,6 +1,7 @@
+import { UserService } from './../user.service';
+import { User } from './../user';
 import { ToastService } from '../services/toast.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
 import { EstablishmentService } from '../establishment.service';
 import { stringify } from 'querystring';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private toastService: ToastService, router: Router) { 
+  constructor(private toastService: ToastService, router: Router, private userService: UserService) { 
     this.router = router;
   }
 
@@ -120,6 +121,7 @@ export class CadastroComponent implements OnInit {
     this.emailValidation=="is-valid"&&
     this.passwordValidation=="is-valid"&&
     this.passwordConfirmValidation=="is-valid"){
+      this.postUser()
       this.router.navigate(['/establishments']);
       this.toastService.show('Você foi cadastrado com sucesso!', {
         classname: 'bg-success text-light',
@@ -137,6 +139,15 @@ export class CadastroComponent implements OnInit {
     }
   }
 
+  postUser(){
+    let user = new User();
+    user.firstName = this.firstName;
+    user.lastName = this.lastName;
+    user.email = this.email;
+    user.password = this.password;
+    alert(user.firstName+ user.lastName+ user.email+ user.password)
+    this.userService.postUser(user);
+  }
 
   hasNumber(name: string){
     for (let i = 0; i < 10; i++) {

@@ -13,10 +13,15 @@ export class UserService {
   constructor(private httpCliente: HttpClient) { }
 
   postUser(user: any){
-    this.httpCliente.post<any>(this.SAVE_UPDATE_USER_URL, user);
+    this.httpCliente.post<any>(this.SAVE_UPDATE_USER_URL, user).subscribe(res => { 
+      console.log(`this.brandListService`, {res}); 
+    }, error => {
+      console.log("Error", error);
+    });;
   }
 
   getUser(idUser: string){
     return this.httpCliente.get(this.USER_URL + idUser);
   }
+
 }
