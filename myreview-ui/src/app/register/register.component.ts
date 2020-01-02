@@ -1,5 +1,5 @@
-import { UserService } from './../user.service';
-import { User } from './../user';
+import { UserService } from '../user.service';
+import { User } from '../user';
 import { ToastService } from '../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { EstablishmentService } from '../establishment.service';
@@ -7,11 +7,11 @@ import { stringify } from 'querystring';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class CadastroComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(private toastService: ToastService, router: Router, private userService: UserService) { 
     this.router = router;

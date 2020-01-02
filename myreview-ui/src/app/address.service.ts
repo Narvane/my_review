@@ -11,6 +11,10 @@ export class AddressService {
   public CITIES_BY_STATE = `${this.apiurl}/cities/`;
   public DISTRICTS_BY_CITY = `${this.apiurl}/districts/`;
 
+  public state;
+  public city;
+  public district;
+
   constructor(private httpCliente: HttpClient) { }
 
   getStates(){
@@ -23,5 +27,11 @@ export class AddressService {
 
   getDistrictsByCity(cityName: any){
     return this.httpCliente.get(this.DISTRICTS_BY_CITY + cityName);
+  }
+
+  reciveAddress(state: any, city: any, district: any){
+    this.state = state;
+    this.city = city;
+    this.district = district;
   }
 }

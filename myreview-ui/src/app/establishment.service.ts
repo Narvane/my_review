@@ -40,4 +40,5 @@ export class EstablishmentService {
     return this.httpCliente.get(this.ESTABLISHMENTS_BY_DISTRICT_URL +  districtName);
   }
   
+  
 }

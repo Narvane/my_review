@@ -10,7 +10,7 @@ import { NavbarComponentComponent } from './navbar-component/navbar-component.co
 import { HttpClientModule } from "@angular/common/http";
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { Routes, RouterModule } from '@angular/router';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { RegisterComponent } from './register/register.component';
 import { AddressComponent } from './establishments/address/address.component';
 import { HomeComponent } from './home/home.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
@@ -27,7 +27,7 @@ import { ToastComponent } from './toast/toast.component';
     SearchComponentComponent,
     NavbarComponentComponent,
     EstablishmentComponent,
-    CadastroComponent,
+    RegisterComponent,
     AddressComponent,
     HomeComponent,
     EstablishmentsComponent,

@@ -1,3 +1,4 @@
+import { EstablishmentService } from './../../establishment.service';
 import { AddressService } from '../../address.service';
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 
@@ -24,7 +25,7 @@ export class AddressComponent implements OnInit {
   cities = [];
   districts = [];
 
-  constructor(private addressService: AddressService) { }
+  constructor(private addressService: AddressService, private establishmentService: EstablishmentService) { }
 
   ngOnInit() {
     this.loadStates();
@@ -54,4 +55,6 @@ export class AddressComponent implements OnInit {
   sendParameters(){
     this.eventTest.emit([this.selectedState, this.selectedCity, this.selectedDistrict]);
   }
+
+  
 }

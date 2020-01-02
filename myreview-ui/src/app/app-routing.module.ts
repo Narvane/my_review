@@ -3,7 +3,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
 import { AddressService } from './address.service';
 import { HomeComponent } from './home/home.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { RegisterComponent } from './register/register.component';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { EstablishmentComponent } from './establishment/establishment.component';
 import { NgModule } from '@angular/core';
@@ -25,8 +25,8 @@ const routes: Routes = [
     component: EstablishmentComponent
   },
   {
-    path:'user/cadastro',
-    component: CadastroComponent
+    path:'user/register',
+    component: RegisterComponent
   },
   {
     path:'user/profile',

@@ -26,7 +26,7 @@ export class EstablishmentsComponent implements OnInit {
     this.city = lista[1];
     this.district = lista[2];
     
-    this.loadEstablishments();
+    //this.loadEstablishments();
   }
 
   findByParameters(){
