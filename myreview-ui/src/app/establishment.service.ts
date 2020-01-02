@@ -14,7 +14,7 @@ export class EstablishmentService {
   public ESTABLISHMENTS_BY_CITY_URL = `${this.apiurl}/establishments/city/`;
   public ESTABLISHMENTS_BY_DISTRICT_URL = `${this.apiurl}/establishments/district/`;
   public SAVE_UPDATE_ESTABLISHMENT_URL = `${this.apiurl}/establishments`;
-  public ESTABLISHMENT_URL = `${this.apiurl}/establishment/`;
+  public ESTABLISHMENT_URL = `${this.apiurl}/establishments/`;
 
   constructor(private httpCliente: HttpClient) { }
   

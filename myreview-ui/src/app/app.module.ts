@@ -34,7 +34,7 @@ import { ToastComponent } from './toast/toast.component';
     UserComponent,
     ProfileComponent,
     ReviewsComponent,
-    ToastComponent
+    ToastComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <app-address  (eventTest)="reciverTest($event)"></app-address>
 <div class="list-group" *ngFor="let establishment of establishments">
-    <a routerLink="establishment/{{ establishment.id }}" class="list-group-item list-group-item-action">
+    <a routerLink="/establishments/{{ establishment.id }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{ establishment.name }}</h5>
                     <small></small>
