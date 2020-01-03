@@ -1,4 +1,4 @@
-import { EstablishmentService } from './../../establishment.service';
+import { EstablishmentService } from '../establishment.service';
 import { AddressService } from '../../address.service';
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 

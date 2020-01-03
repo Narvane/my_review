@@ -1,11 +1,10 @@
-import { ReviewsComponent } from './user/reviews/reviews.component';
-import { ProfileComponent } from './user/profile/profile.component';
+import { ReviewsComponent } from './establishments/establishment/reviews/reviews.component';
+import { ProfileComponent } from './establishments/establishment/reviews/user/profile/profile.component';
 import { EstablishmentsComponent } from './establishments/establishments.component';
 import { AddressService } from './address.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { SearchComponentComponent } from './search-component/search-component.component';
-import { EstablishmentComponent } from './establishment/establishment.component';
+import { EstablishmentComponent } from './establishments/establishment/establishment.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddressComponent } from './establishments/address/address.component';

@@ -1,8 +1,8 @@
-import { UserService } from '../user.service';
+import { UserService } from '../establishments/establishment/reviews/user/user.service';
 import { User } from '../user';
-import { ToastService } from '../services/toast.service';
+import { ToastService } from '../toast/toast.service';
 import { Component, OnInit } from '@angular/core';
-import { EstablishmentService } from '../establishment.service';
+import { EstablishmentService } from '../establishments/establishment.service';
 import { stringify } from 'querystring';
 import { Router } from '@angular/router';
 

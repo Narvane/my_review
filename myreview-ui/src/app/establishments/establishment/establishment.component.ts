@@ -1,7 +1,7 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UserService } from './../user.service';
-import { ReviewService } from './../review.service';
-import { EstablishmentService } from './../establishment.service';
+import { UserService } from './reviews/user/user.service';
+import { ReviewService } from '../../review.service';
+import { EstablishmentService } from '../establishment.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 

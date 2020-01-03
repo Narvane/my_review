@@ -1,4 +1,4 @@
-import { EstablishmentService } from './../establishment.service';
+import { EstablishmentService } from './establishment.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class EstablishmentsComponent implements OnInit {
   establishments = [];
 
   constructor(private establishmentService: EstablishmentService) { }
-
+  
   ngOnInit() {
     this.establishmentService.getAllEstablishments()
       .subscribe(response => this.establishments = <any> response)
