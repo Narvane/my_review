@@ -13,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -24,14 +25,14 @@ public class Review {
 	@Column(name = "rvw_id")
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("reviews")
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="usr_id")
-	@JsonIgnore
 	private User user;
 	
+	@JsonIgnoreProperties("reviews")
 	@JoinColumn(name="est_id")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Establishment establishment;
 	
 	@Column(name = "rvw_comment", length = 300, nullable = false)

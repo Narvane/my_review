@@ -26,7 +26,6 @@ public class District {
 	private String name;
 	
 	@JsonIgnore
-	@JsonIgnoreProperties("city")
 	@JoinColumn(name="cty_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private City city;

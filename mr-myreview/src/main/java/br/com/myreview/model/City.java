@@ -29,13 +29,11 @@ public class City{
 	private String name;
 	
 	@JsonIgnore
-	@JsonIgnoreProperties("state")
 	@JoinColumn(name="sts_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private State state;
 	
 	@JsonIgnore
-	@JsonIgnoreProperties("city")
 	@OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
 	private List<District> districts;
 	

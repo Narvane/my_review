@@ -15,6 +15,7 @@ import javax.validation.constraints.NotEmpty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -43,9 +44,8 @@ public class User {
 	@NotEmpty
 	private String password;
 	
-	@JsonManagedReference
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	@JsonIgnore
 	private List<Review> reviews;
 	
 	public Long getId() {

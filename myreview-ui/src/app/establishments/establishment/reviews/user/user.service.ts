@@ -9,6 +9,7 @@ export class UserService {
   private apiurl = 'http://localhost:8080/';
   public USER_URL = `${this.apiurl}/user/`;
   public SAVE_UPDATE_USER_URL = `${this.apiurl}/users`;
+  public AUTHENTICATE_USER_URL = `${this.apiurl}/login`;
 
   constructor(private httpCliente: HttpClient) { }
 
@@ -24,4 +25,7 @@ export class UserService {
     return this.httpCliente.get(this.USER_URL + idUser);
   }
 
+  authenticate(email: any, senha: any){
+    return this.httpCliente.get(this.AUTHENTICATE_USER_URL + email, senha);
+  }
 }

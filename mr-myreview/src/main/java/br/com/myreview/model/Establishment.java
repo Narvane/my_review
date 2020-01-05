@@ -7,6 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -42,7 +43,6 @@ public class Establishment {
 	@Min(0)
 	private int number;
 	
-	@JsonManagedReference
 	@OneToMany(mappedBy = "establishment", fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Review> reviews;

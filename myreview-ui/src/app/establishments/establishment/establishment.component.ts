@@ -11,24 +11,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./establishment.component.css']
 })
 export class EstablishmentComponent implements OnInit {
-  public userId;
+  public establishmentId;
   establishment;
   reviews = [];
-  idUsuario;
   user;
 
+
   constructor(private establishmentService: EstablishmentService, private route: ActivatedRoute, private reviewService: ReviewService, private userService: UserService, private modalService: NgbModal) { 
-    this.route.params.subscribe(params => this.userId = params['id'])
+    this.route.params.subscribe(params => this.establishmentId = params['id'])
   }
 
   ngOnInit() {
-    this.establishmentService.getEstablishment(this.userId)
+    this.establishmentService.getEstablishment(this.establishmentId)
     .subscribe(response => this.establishment = <any> response)
 
-    this.reviewService.getReviewsByEstablishments(this.userId)
+    this.reviewService.getReviewsByEstablishments(this.establishmentId)
     .subscribe(response => this.reviews = <any> response)
 
-    //this.userService.getUser().subscribe(response => this.user = <any> response)
   }
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});

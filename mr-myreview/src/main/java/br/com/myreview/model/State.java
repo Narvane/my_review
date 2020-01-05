@@ -30,7 +30,6 @@ public class State{
 	private String name;
 	
 	@JsonIgnore
-	@JsonIgnoreProperties("state")
 	@OneToMany(mappedBy = "state", fetch = FetchType.LAZY)
 	private List<City> cities;
 	

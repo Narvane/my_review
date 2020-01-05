@@ -39,4 +39,13 @@ public class UserController {
 		}
 		return userRepository.findById(id).get();
 	}
+	
+	@PostMapping("/login")
+	public Optional<User> authenticate(@Valid @RequestBody String email, @Valid @RequestBody String password) {
+		Optional<User> user = userRepository.findByEmailAndPassword(email, password);
+		if(!user.isPresent()) {
+			return user;
+		}
+		return null;
+	}
 }
