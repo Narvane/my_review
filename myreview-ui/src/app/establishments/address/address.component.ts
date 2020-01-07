@@ -1,6 +1,7 @@
+import { Observable } from 'rxjs';
 import { EstablishmentService } from '../establishment.service';
 import { AddressService } from '../../address.service';
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 
@@ -11,11 +12,8 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 })
 export class AddressComponent implements OnInit {
 
-  @Output() eventState = new EventEmitter<any>();
-  @Output() eventCity = new EventEmitter<any>();
-  @Output() eventDistrict = new EventEmitter<any>();
-
-  @Output() eventTest = new EventEmitter<any>();
+  @Output() establishmentEmiter = new EventEmitter<any>();
+  establishmentList: Observable<any>;
 
   selectedState = "Estados";
   selectedCity = "Cidades";
@@ -31,30 +29,38 @@ export class AddressComponent implements OnInit {
     this.loadStates();
   }
 
-  loadStates(){
+  loadStates() {
     this.selectedState = "Estados";
     this.addressService.getStates()
-    .subscribe(response => this.states = <any> response);
+      .subscribe(response => this.states = <any>response);
 
     this.selectedCity = "Cidades";
     this.loadCities();
   }
-  loadCities(){
+  loadCities() {
     this.addressService.getCitiesByState(this.selectedState)
-    .subscribe(response => this.cities = <any> response);
+      .subscribe(response => this.cities = <any>response);
 
     this.selectedDistrict = "Bairros";
     this.loadDistricts();
   }
-  loadDistricts(){
+  loadDistricts() {
     this.addressService.getDistrictsByCity(this.selectedCity)
-    .subscribe(response => this.districts = <any> response);
+      .subscribe(response => this.districts = <any>response);
 
   }
 
-  sendParameters(){
-    this.eventTest.emit([this.selectedState, this.selectedCity, this.selectedDistrict]);
+  sendEstablishmentList() {
+    if (this.selectedCity == "Cidades") {
+      this.establishmentList = this.establishmentService.getEstablishmentsByState(this.selectedState)
+    } else if (this.selectedDistrict == "Bairros" && this.selectedCity != "Cidades") {
+      this.establishmentList = this.establishmentService.getEstablishmentsByCity(this.selectedCity)
+    } else if (this.selectedState == "Estados" && this.selectedDistrict == "Bairros" && this.selectedCity == "Cidades") {
+      this.establishmentList = this.establishmentService.getAllEstablishments()
+    } else {
+      this.establishmentList = this.establishmentService.getEstablishmentsByDistrict(this.selectedDistrict)
+    }
+    this.establishmentEmiter.emit(this.establishmentList);
   }
 
-  
 }

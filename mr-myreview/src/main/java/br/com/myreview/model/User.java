@@ -44,7 +44,7 @@ public class User {
 	@NotEmpty
 	private String password;
 	
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Review> reviews;
 	

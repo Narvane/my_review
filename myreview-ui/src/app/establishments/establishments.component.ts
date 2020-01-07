@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { EstablishmentService } from './establishment.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./establishments.component.css']
 })
 export class EstablishmentsComponent implements OnInit {
-  state = "Estados";
-  city = "Cidades";
-  district = "Bairros";
 
   establishments = [];
 
@@ -18,34 +16,10 @@ export class EstablishmentsComponent implements OnInit {
   ngOnInit() {
     this.establishmentService.getAllEstablishments()
       .subscribe(response => this.establishments = <any> response)
-      
   }
 
-  reciverTest(lista: [string, string, string]) {
-    this.state = lista[0];
-    this.city = lista[1];
-    this.district = lista[2];
-    
-    //this.loadEstablishments();
+  reciverList(establishmentList: Observable<any>) {
+    establishmentList.subscribe(response => this.establishments = <any> response)
   }
 
-  findByParameters(){
-    alert(this.state);
-  }
-
-  loadEstablishments(){
-    if(this.city == "Cidades"){
-      this.establishmentService.getEstablishmentsByState(this.state)
-      .subscribe(response => this.establishments = <any> response)
-    }else if(this.district == "Bairros" && this.city!="Cidades"){
-      this.establishmentService.getEstablishmentsByCity(this.city)
-      .subscribe(response => this.establishments = <any> response)
-    }else if(this.state == "Estados" && this.district == "Bairros" && this.city=="Cidades"){
-      this.establishmentService.getAllEstablishments()
-      .subscribe(response => this.establishments = <any> response)
-    }else{
-      this.establishmentService.getEstablishmentsByDistrict(this.district)
-      .subscribe(response => this.establishments = <any> response)
-    }
-  }
 }

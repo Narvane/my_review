@@ -16,6 +16,9 @@ export class EstablishmentComponent implements OnInit {
   reviews = [];
   user;
 
+  stars;
+  comment;
+
 
   constructor(private establishmentService: EstablishmentService, private route: ActivatedRoute, private reviewService: ReviewService, private userService: UserService, private modalService: NgbModal) { 
     this.route.params.subscribe(params => this.establishmentId = params['id'])
@@ -31,5 +34,9 @@ export class EstablishmentComponent implements OnInit {
   }
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
+  }
+
+  postReview(){
+    
   }
 }

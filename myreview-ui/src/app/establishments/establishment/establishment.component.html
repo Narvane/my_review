@@ -35,11 +35,11 @@
     </button>
   </div>
   <div class="modal-body">
-    <star-rating value="5" totalstars="5" checkedcolor="orange" uncheckedcolor="black" size="24px"
+    <star-rating value="5" totalstars="5" checkedcolor="orange" uncheckedcolor="black" [(ngModel)]="stars" size="24px"
         readonly="false"></star-rating>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="comment" rows="3"></textarea>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-warning" (click)="modal.close('Close click')">Avaliar</button>
+    <button type="button" class="btn btn-warning" (click)="postReview()">Avaliar</button>
   </div>
-</ng-template>
+</ng-template> 

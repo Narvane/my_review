@@ -1,3 +1,4 @@
+import { User } from './user';
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators'
@@ -9,5 +10,5 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  user;
 }

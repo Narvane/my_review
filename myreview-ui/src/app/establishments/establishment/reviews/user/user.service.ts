@@ -26,6 +26,10 @@ export class UserService {
   }
 
   authenticate(email: any, senha: any){
-    return this.httpCliente.get(this.AUTHENTICATE_USER_URL + email, senha);
+    this.httpCliente.post<any>(this.AUTHENTICATE_USER_URL + email, senha).subscribe(res => { 
+      console.log(`this.brandListService`, {res}); 
+    }, error => {
+      console.log("Error", error);
+    });;
   }
 }
